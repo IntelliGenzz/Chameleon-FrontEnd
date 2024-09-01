@@ -12,6 +12,40 @@ const Chatbot = () => {
     }
   };
 
+  const handleSpeechRecognition = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert('Este navegador não suporta a API Web Speech.');
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'pt-BR';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      console.log("Reconhecimento de fala iniciado");
+    };
+
+    recognition.onresult = (event) => {
+      const speechToText = event.results[0][0].transcript;
+      console.log("Texto reconhecido:", speechToText);
+      setInput(prevInput => prevInput + ' ' + speechToText);  // Adiciona o texto reconhecido ao input existente
+    };
+
+    recognition.onspeechend = () => {
+      console.log("Reconhecimento de fala encerrado");
+      recognition.stop();
+    };
+
+    recognition.onerror = (event) => {
+      console.error('Erro no reconhecimento de fala:', event.error);
+    };
+
+    recognition.start();
+  };
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -42,7 +76,7 @@ const Chatbot = () => {
           {/* Área de Entrada de Texto e Botões */}
           <div className="flex items-center p-2 bg-bege border-t border-verde_e">
             <button 
-              onClick={handleSendMessage}
+              onClick={handleSpeechRecognition}
               className='flex items-center justify-center mr-2 bg-branco text-verde_e rounded-full border border-verde_e hover:bg-verde_c hover:text-branco'
               style={{ height: '50px', width: '50px' }}
             >

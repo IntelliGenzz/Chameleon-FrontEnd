@@ -1,11 +1,9 @@
-// src/App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Cabecalho';
 import Chatbot from './components/Chatbot';
-import Login from './components/Login'; // Certifique-se de criar o Login.js
-import Admin from './components/Admin'; // Certifique-se de criar o Admin.js
+import Login from './components/Login';
+import Admin from './components/Admin';
 
 function App() {
   return (
