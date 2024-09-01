@@ -61,9 +61,6 @@
 
 &ensp;Em resumo, este software é uma ferramenta essencial para qualquer instituição financeira que busca fortalecer a educação financeira de seus colaboradores, garantir a conformidade com normativas em constante evolução, e preservar o conhecimento crítico dentro da empresa. Com suas funcionalidades inovadoras, ele se posiciona como uma solução completa e diferenciada no mercado.
 
-
-COMO FIZEMOS ISSO?: [DESCREVER PARTE TÉCNICA]
-
 # 📈Análise do mercado
 
 ## Análise SWOT:
